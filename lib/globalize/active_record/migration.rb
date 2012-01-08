@@ -23,8 +23,9 @@ module Globalize
 
         self.connection.add_index(
           translation_table_name, 
-          "#{table_name.sub(/^#{table_name_prefix}/, "").singularize}_id",
-          :name => translation_index_name
+          "#{table_name.sub(/^#{table_name_prefix}/, "").singularize}_id, locale",
+          :name => translation_index_name,
+          :unique => true
         )
       end
 
